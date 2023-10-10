@@ -1,12 +1,19 @@
-import Number from "./Number";
-import Operation from "./Operation";
-import Screen from "./Screen";
+import React from "react";
+import Number from "../Number/Number";
+import Operation from "../Operation/Operation";
+import Screen from "../Screen/Screen";
 
-const Calculator = () => {
+
+export interface CalculatorProps {
+
+
+}
+const Calculator = (props : CalculatorProps) => {
   /** TODO: Here is where you are going to keep track of calculator state */
 
   /** TODO: what happens when I click a number? */
   const handleNumberClick = () => {};
+
 
   /** TODO: what happens when I click an operation? */
   const handleOperationClick = () => {};

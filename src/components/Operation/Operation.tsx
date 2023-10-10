@@ -1,5 +1,12 @@
-const Operation = ({ value }) => {
+
+export interface iOperationProps {
+  value: string;
+  onClick: () => void;
+}
+const Operation = (props : iOperationProps) => {
   /** TODO: What happens when a user clicks an Operation, what do we want to pass to our parent? */
+
+
   return (
     <div
       style={{
@@ -7,8 +14,9 @@ const Operation = ({ value }) => {
         border: "1px solid black",
         width: 60,
       }}
+      onClick={props.onClick}
     >
-      {value}
+      {props.value}
     </div>
   );
 };
