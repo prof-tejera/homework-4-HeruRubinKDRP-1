@@ -1,10 +1,10 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import Number, { iNumberProps } from "./Number";
+import NumberInput, { iNumberProps } from "./NumberInput";
 
 export default {
   title: "Components/Number",
-  component: Number,
+  component: NumberInput,
   tags : ['autodocs'],
   argTypes : {
 value: {
@@ -13,7 +13,7 @@ value: {
   }
 } as Meta;
 
-const Template = (args : iNumberProps) => <Number  value={args.value} onClick={() => {
+const Template = (args : iNumberProps) => <NumberInput  value={args.value} onClick={() => {
 }}   />;
 
 export const Default = Template.bind({});

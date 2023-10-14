@@ -3,12 +3,12 @@ import { NumberStyled } from "./number.styled";
 
 
 export interface iNumberProps {
-  value: number;
+  value: number | string;
   classes? : string;
-  onClick: (value: number) => void;
+  onClick: (value: number | string) => void;
 }
 
-const Number = (props : iNumberProps) => {
+const NumberInput = (props : iNumberProps) => {
   /** TODO: What happens when a user clicks a number, what do we want to pass to our parent? */
   const handleClick = () => {
     if(props.onClick) {
@@ -29,4 +29,4 @@ const Number = (props : iNumberProps) => {
   );
 };
 
-export default Number;
+export default NumberInput;
