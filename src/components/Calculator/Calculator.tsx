@@ -6,7 +6,7 @@ import { CalculatorStyled } from "./calculator.styled";
 
 
 
-export type OperatorT = "+" | "-" | "*" | "/" | "=" | "clear"
+export type OperatorT = "+" | "-" | "*" | "/" | "=" | "clear" | ".";
 
 const Calculator = () => {
   /** Here is where you are going to keep track of calculator state */
@@ -54,8 +54,11 @@ const Calculator = () => {
 
 
   /** what happens when I click a number */
-  const handleNumberClick = (value: number) => {
-    setInput((prevInput) => prevInput + value.toString());
+  const handleNumberClick = (value: number | string) => {
+    // Check if the input already contains a decimal point
+    if (!input.includes('.') || value !== '.') {
+      setInput((prevInput) => prevInput + value);
+    }
   };
 
 
@@ -71,7 +74,7 @@ const Calculator = () => {
   };
 
   return (
-    <CalculatorStyled>
+    <CalculatorStyled >
       <Screen value={input} result={displayResult}/>
       <div style={{ display: "flex" }}>
         <div className="number-pad">
@@ -92,7 +95,10 @@ const Calculator = () => {
           <Operation value="×" onClick={() => handleOperationClick("*")} />
           <Operation value="-" onClick={() => handleOperationClick("-")} />
           <Operation value="=" onClick={() => handleOperationClick("=")} />
+          <Operation value="." onClick={() => handleNumberClick('.')} />
           <Operation value="clear" onClick={() => handleOperationClick("clear")} />
+          
+
         </div>
       </div>
     </CalculatorStyled>

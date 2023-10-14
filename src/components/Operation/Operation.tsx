@@ -8,7 +8,7 @@ export interface iOperationProps {
 const Operation = (props : iOperationProps) => {
   //pass number value back to operation
   return (
-    <OperationStyled onClick={props.onClick} >
+    <OperationStyled className="operator" onClick={props.onClick} >
       {props.value}
     </OperationStyled>
   );

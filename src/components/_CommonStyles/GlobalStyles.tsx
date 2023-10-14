@@ -1,6 +1,6 @@
 import {createGlobalStyle} from "styled-components";
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   #storybook-root{
     min-height: 100vh;
     min-width: 100vw;

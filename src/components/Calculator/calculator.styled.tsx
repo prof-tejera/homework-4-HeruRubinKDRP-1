@@ -15,7 +15,7 @@ export const CalculatorStyled = styled.div`
   --step-5: clamp(2.49rem, calc(0.17rem + 11.59vw), 9.15rem);
   padding: var(--step-0);
   * {
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Kanit', sans-serif !important;
     user-select: none;
     box-sizing: border-box;
   }
