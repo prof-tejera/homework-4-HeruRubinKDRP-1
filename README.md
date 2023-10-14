@@ -21,12 +21,7 @@ As you can tell the current layout needs a lot of styling work. Modify the layou
 
 ## How to run the project
 
-`npm i && npm start`
+`npm i && npm build  && npm start`
 
---to run StoryBook--
-
-`npm run build-storybook`
-then, once built:
-`npm run storybook`
 
 Open [http://localhost:3000](http://localhost:3000)
