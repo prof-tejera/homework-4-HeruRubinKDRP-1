@@ -1,5 +1,5 @@
 import {addons} from "@storybook/addons"
-import heruTheme from "./HeruTheme";
+import heruTheme from "./heruTheme";
 
 addons.setConfig({
   theme: heruTheme
