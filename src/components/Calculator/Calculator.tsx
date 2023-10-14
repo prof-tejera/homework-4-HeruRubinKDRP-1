@@ -5,24 +5,18 @@ import Screen from "../Screen/Screen";
 import { CalculatorStyled } from "./calculator.styled";
 
 
-export interface CalculatorProps {
-
-
-}
 
 export type OperatorT = "+" | "-" | "*" | "/" | "=" | "clear"
 
-const Calculator = (props : CalculatorProps) => {
+const Calculator = () => {
   /** Here is where you are going to keep track of calculator state */
   const [input, setInput] = useState<string>(""); // State to store user input
-  const [result, setResult] = useState<number | null>(null); // State to store the calculation result
   const [displayResult, setDisplayResult] = useState<string | null>("0"); // State to store the calculation result
 
 
   const calculate = () => {
-    const parts = input.split(/(\+|\-|\*|\/)/);
+    const parts = input.split(/([+\-*\/])/);
     let total = parseFloat(parts[0]);
-
     for (let i = 1; i < parts.length; i += 2) {
       const operator = parts[i];
       const operand = parseFloat(parts[i + 1]);
@@ -41,7 +35,7 @@ const Calculator = (props : CalculatorProps) => {
           if (operand !== 0) {
             total /= operand;
           } else {
-            setResult(null);
+            setDisplayResult(null);
             setInput("Error: Division by zero");
             return;
           }
@@ -53,7 +47,6 @@ const Calculator = (props : CalculatorProps) => {
 
     // Format the total with commas and set it in the state
     const formattedTotal = total.toLocaleString();
-    setResult(total);
     setDisplayResult(total.toLocaleString());
     setInput(formattedTotal);
   };
@@ -70,7 +63,6 @@ const Calculator = (props : CalculatorProps) => {
   const handleOperationClick = (operator: OperatorT) => {
     if (operator === "clear") {
       setInput("");
-      setResult(null);
     } else if (operator === "=") {
       calculate();
     } else {

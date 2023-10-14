@@ -1,5 +1,5 @@
 import React from "react";
-import Calculator, { CalculatorProps } from "./Calculator";
+import Calculator from "./Calculator";
 import { Meta } from "@storybook/react";
 
 
@@ -12,7 +12,7 @@ export default {
   }
 } as Meta;
 
-const Template = (args : CalculatorProps) => <Calculator {...args} />;
+const Template = () => <Calculator />;
 
 export const Default = Template.bind({});
 
