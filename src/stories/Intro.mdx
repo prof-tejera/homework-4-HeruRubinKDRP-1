@@ -1,0 +1,190 @@
+import { Meta } from "@storybook/blocks";
+import Calculator from "../components/Calculator/Calculator";
+
+
+
+<Meta title="Intro" />
+<style>
+  {`
+  @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;500&family=Roboto&display=swap');
+  --step--6: clamp(0.30rem, calc(0.16rem + 0.8vw), 0.75rem);
+    --step--5: clamp(0.40rem, calc(0.20rem + 1.01vw), 0.98rem);
+    --step--4: clamp(0.48rem, calc(0.22rem + 1.30vw), 1.23rem);
+    --step--3: clamp(0.58rem, calc(0.25rem + 1.67vw), 1.54rem);
+    --step--2: clamp(0.69rem, calc(0.27rem + 2.13vw), 1.92rem);
+    --step--1: clamp(0.83rem, calc(0.29rem + 2.73vw), 2.40rem);
+    --step-0: clamp(1.00rem, calc(0.30rem + 3.48vw), 3.00rem);
+    --step-1: clamp(1.20rem, calc(0.31rem + 4.43vw), 3.75rem);
+    --step-2: clamp(1.44rem, calc(0.31rem + 5.65vw), 4.69rem);
+    --step-3: clamp(1.73rem, calc(0.29rem + 7.18vw), 5.86rem);
+    --step-4: clamp(2.07rem, calc(0.25rem + 9.13vw), 7.32rem);
+    --step-5: clamp(2.49rem, calc(0.17rem + 11.59vw), 9.15rem);
+  `}
+</style>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Calculator
+  by Heru Rubin
+  </div>
+ <Calculator/>
+</div>
+
+
+<style>
+  {`
+  .sb-container {
+    margin-bottom: 48px;
+  }
+
+  .sb-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  .sb-section-title {
+    margin-bottom: 32px;
+  }
+
+  .sb-section a:not(h1 a, h2 a, h3 a) {
+    font-size: 14px;
+  }
+
+  .sb-section-item, .sb-grid-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sb-section-item-heading {
+    padding-top: 20px !important;
+    padding-bottom: 5px !important;
+    margin: 0 !important;
+  }
+  .sb-section-item-paragraph {
+    margin: 0;
+    padding-bottom: 10px;
+  }
+
+  .sb-chevron {
+    margin-left: 5px;
+  }
+
+  .sb-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 32px 20px;
+  }
+
+  .sb-socials {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .sb-socials p {
+    margin-bottom: 10px;
+  }
+
+  .sb-explore-image {
+    max-height: 32px;
+    align-self: flex-start;
+  }
+
+  .sb-addon {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: #EEF3F8;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: #EEF3F8;
+    height: 180px;
+    margin-bottom: 48px;
+    overflow: hidden;
+  }
+
+  .sb-addon-text {
+    padding-left: 48px;
+    max-width: 240px;
+  }
+
+  .sb-addon-text h4 {
+    padding-top: 0px;
+  }
+
+  .sb-addon-img {
+    position: absolute;
+    left: 345px;
+    top: 0;
+    height: 100%;
+    width: 200%;
+    overflow: hidden;
+  }
+
+  .sb-addon-img img {
+    width: 650px;
+    transform: rotate(-15deg);
+    margin-left: 40px;
+    margin-top: -72px;
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0);
+    backface-visibility: hidden;
+  }
+
+  @media screen and (max-width: 800px) {
+    .sb-addon-img {
+      left: 300px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .sb-section {
+      flex-direction: column;
+    }
+
+    .sb-features-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .sb-socials {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sb-addon {
+      height: 280px;
+      align-items: flex-start;
+      padding-top: 32px;
+      overflow: hidden;
+    }
+
+    .sb-addon-text {
+      padding-left: 24px;
+    }
+
+    .sb-addon-img {
+      right: 0;
+      left: 0;
+      top: 130px;
+      bottom: 0;
+      overflow: hidden;
+      height: auto;
+      width: 124%;
+    }
+
+    .sb-addon-img img {
+      width: 1200px;
+      transform: rotate(-12deg);
+      margin-left: 0;
+      margin-top: 48px;
+      margin-bottom: -40px;
+      margin-left: -24px;
+    }
+  }
+  `}
+</style>
