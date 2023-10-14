@@ -22,6 +22,5 @@ As you can tell the current layout needs a lot of styling work. Modify the layou
 ## How to run the project
 
 `npm i && npm build  && npm start`
-
-
+  
 Open [http://localhost:3000](http://localhost:3000)
