@@ -13,6 +13,9 @@ function App() {
       }}
     >
       <Calculator />
+      <style>
+        {`@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;500&family=Roboto&display=swap');`}
+      </style>
     </div>
   );
 }

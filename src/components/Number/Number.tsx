@@ -1,7 +1,10 @@
+import React from "react";
+import { NumberStyled } from "./number.styled";
 
 
 export interface iNumberProps {
   value: number;
+  classes? : string;
   onClick: (value: number) => void;
 }
 
@@ -14,16 +17,15 @@ const Number = (props : iNumberProps) => {
   };
 
   return (
-    <div
+    <NumberStyled
+      className={`number ${props.classes}`}
       onClick={handleClick}
       style={{
-        padding: 10,
-        border: "1px solid black",
-        width: 60,
+
       }}
     >
       {props.value}
-    </div>
+    </NumberStyled>
   );
 };
 

@@ -1,49 +1,109 @@
-import React from "react";
+import React, { useState } from "react";
 import Number from "../Number/Number";
 import Operation from "../Operation/Operation";
 import Screen from "../Screen/Screen";
+import { CalculatorStyled } from "./calculator.styled";
 
 
 export interface CalculatorProps {
 
 
 }
-const Calculator = (props : CalculatorProps) => {
-  /** TODO: Here is where you are going to keep track of calculator state */
 
-  /** TODO: what happens when I click a number? */
-  const handleNumberClick = () => {};
+export type OperatorT = "+" | "-" | "*" | "/" | "=" | "clear"
+
+const Calculator = (props : CalculatorProps) => {
+  /** Here is where you are going to keep track of calculator state */
+  const [input, setInput] = useState<string>(""); // State to store user input
+  const [result, setResult] = useState<number | null>(null); // State to store the calculation result
+  const [displayResult, setDisplayResult] = useState<string | null>("0"); // State to store the calculation result
+
+
+  const calculate = () => {
+    const parts = input.split(/(\+|\-|\*|\/)/);
+    let total = parseFloat(parts[0]);
+
+    for (let i = 1; i < parts.length; i += 2) {
+      const operator = parts[i];
+      const operand = parseFloat(parts[i + 1]);
+
+      switch (operator) {
+        case "+":
+          total += operand;
+          break;
+        case "-":
+          total -= operand;
+          break;
+        case "*":
+          total *= operand;
+          break;
+        case "/":
+          if (operand !== 0) {
+            total /= operand;
+          } else {
+            setResult(null);
+            setInput("Error: Division by zero");
+            return;
+          }
+          break;
+        default:
+          break;
+      }
+    }
+
+    // Format the total with commas and set it in the state
+    const formattedTotal = total.toLocaleString();
+    setResult(total);
+    setDisplayResult(total.toLocaleString());
+    setInput(formattedTotal);
+  };
+
+
+
+  /** what happens when I click a number */
+  const handleNumberClick = (value: number) => {
+    setInput((prevInput) => prevInput + value.toString());
+  };
 
 
   /** TODO: what happens when I click an operation? */
-  const handleOperationClick = () => {};
+  const handleOperationClick = (operator: OperatorT) => {
+    if (operator === "clear") {
+      setInput("");
+      setResult(null);
+    } else if (operator === "=") {
+      calculate();
+    } else {
+      setInput((prevInput) => prevInput + operator);
+    }
+  };
 
   return (
-    <div>
-      <Screen value="123" />
+    <CalculatorStyled>
+      <Screen value={input} result={displayResult}/>
       <div style={{ display: "flex" }}>
-        <div>
-          <Number value={0} onClick={handleNumberClick} />
-          <Number value={1} onClick={handleNumberClick} />
-          <Number value={2} onClick={handleNumberClick} />
-          <Number value={3} onClick={handleNumberClick} />
-          <Number value={4} onClick={handleNumberClick} />
-          <Number value={5} onClick={handleNumberClick} />
-          <Number value={6} onClick={handleNumberClick} />
-          <Number value={7} onClick={handleNumberClick} />
-          <Number value={8} onClick={handleNumberClick} />
-          <Number value={9} onClick={handleNumberClick} />
+        <div className="number-pad">
+          <Number classes="zero" value={0} onClick={handleNumberClick} />
+          <Number classes="one" value={1} onClick={handleNumberClick} />
+          <Number classes="two" value={2} onClick={handleNumberClick} />
+          <Number classes="three" value={3} onClick={handleNumberClick} />
+          <Number classes="four" value={4} onClick={handleNumberClick} />
+          <Number classes="five" value={5} onClick={handleNumberClick} />
+          <Number classes="six" value={6} onClick={handleNumberClick} />
+          <Number classes="seven" value={7} onClick={handleNumberClick} />
+          <Number classes="eight" value={8} onClick={handleNumberClick} />
+          <Number classes="nine" value={9} onClick={handleNumberClick} />
         </div>
-        <div style={{ paddingLeft: 10 }}>
-          <Operation value="+" onClick={handleOperationClick} />
-          <Operation value="/" onClick={handleOperationClick} />
-          <Operation value="x" onClick={handleOperationClick} />
-          <Operation value="-" onClick={handleOperationClick} />
-          <Operation value="=" onClick={handleOperationClick} />
-          <Operation value="clear" onClick={handleOperationClick} />
+        <div className="operations" style={{ paddingLeft: 10 }}>
+          <Operation value="+" onClick={() => handleOperationClick("+")} />
+          <Operation value="÷" onClick={() => handleOperationClick("/")} />
+          <Operation value="×" onClick={() => handleOperationClick("*")} />
+          <Operation value="-" onClick={() => handleOperationClick("-")} />
+          <Operation value="=" onClick={() => handleOperationClick("=")} />
+          <Operation value="clear" onClick={() => handleOperationClick("clear")} />
         </div>
       </div>
-    </div>
+    </CalculatorStyled>
   );
 };
 

@@ -1,16 +1,20 @@
-const Screen = ({ value }) => {
+import React from "react";
+import { ScreenStyled } from "./screen.styled";
+
+
+export interface iScreenProps {
+  value: string;
+  result?: string;
+}
+const Screen = (props : iScreenProps) => {
   return (
-    <div
-      style={{
-        border: "1px solid black",
-        width: 300,
-        height: 70,
-        textAlign: "right",
-        marginBottom: 10,
-      }}
-    >
-      {value}
-    </div>
+    <ScreenStyled>
+      {props.value}
+      <br></br>
+      <div className="result">
+        {props.result}
+      </div>
+    </ScreenStyled>
   );
 };
 
